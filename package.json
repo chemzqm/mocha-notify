@@ -1,7 +1,7 @@
 {
   "name": "mocha-notify",
-  "version": "0.0.1",
-  "author": "Tobias Koppers @sokra",
+  "version": "0.0.2",
+  "author": "chemzqm@gmail.com",
   "description": "mocha loader module with browser notify for webpack",
   "repository": {
     "type": "git",
