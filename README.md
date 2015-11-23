@@ -1,4 +1,4 @@
-# mocha loader for webpack
+# mocha-notify loader for webpack
 
 ## Usage
 
@@ -7,11 +7,11 @@
 *Hint*: when using `!` in the bash command line, you must escape it by prepending a `\`
 
 ``` text
-webpack-dev-server 'mocha!./my-client-tests.js' --options webpackOptions.js
+webpack-dev-server 'mocha-notify!./my-client-tests.js' --options webpackOptions.js
 ```
 
 ``` text
-enhanced-require 'mocha!./my-server-tests.js'
+enhanced-require 'mocha-notify!./my-server-tests.js'
 ```
 
 ### webpack.config.js
@@ -19,7 +19,7 @@ enhanced-require 'mocha!./my-server-tests.js'
 ```js
 
 module.exports = {
-    entry: 'mocha!./entry-file.js',
+    entry: 'mocha-notify!./entry-file.js',
     output: {
         path: __dirname,
         filename: 'bundle.js'
