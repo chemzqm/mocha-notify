@@ -1,25 +1,25 @@
 {
-	"name": "mocha-loader",
-	"version": "0.7.1",
-	"author": "Tobias Koppers @sokra",
-	"description": "mocha loader module for webpack",
-	"repository" : {
-		"type" : "git",
-		"url" : "https://github.com/webpack/mocha-loader"
-	},
-	"peerDependencies": {
-		"mocha": "^2.0.1"
-	},
-	"dependencies": {
-		"script-loader": "~0.6.0",
-		"css-loader": "~0.9.0",
-		"style-loader": "~0.8.1",
-		"loader-utils": "~0.2.5"
-	},
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "http://www.opensource.org/licenses/mit-license.php"
-		}
-	]
+  "name": "mocha-notify",
+  "version": "0.0.1",
+  "author": "Tobias Koppers @sokra",
+  "description": "mocha loader module with browser notify for webpack",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chemzqm/mocha-notify"
+  },
+  "peerDependencies": {
+    "mocha": "^2.0.1"
+  },
+  "dependencies": {
+    "script-loader": "~0.6.0",
+    "css-loader": "~0.9.0",
+    "style-loader": "~0.8.1",
+    "loader-utils": "~0.2.5"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ]
 }
