@@ -11,7 +11,7 @@ module.exports.pitch = function(req) {
 	var source = [];
 	if(this.target == "web") {
 		source.push("require(" + JSON.stringify("!!" + path.join(__dirname, "web.js")) + ");");
-		source.push("mocha.setup(" + JSON.stringify(query["interface"] || "bdd") + ");");
+		source.push("mocha.setup({ui:" + JSON.stringify(query["interface"] || "bdd") + ", growl: true});");
 		source.push("require(" + JSON.stringify("!!" + req) + ")");
 		source.push("require(" + JSON.stringify("!!" + path.join(__dirname, "start.js")) + ");");
 		source.push("if(module.hot) {");
