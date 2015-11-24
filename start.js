@@ -4,7 +4,7 @@ var filter = (function() {
   var cwd = (typeof location === 'undefined' ? window.location : location).href.replace(/\/[^\/]*$/, '/')
 
   function isExpectInternal(line) {
-    return ~line.indexOf('~' + slash + ' expect' + slash + 'lib' + slash)
+    return ~line.indexOf('~/expect/lib/')
   }
   function isMochaInternal(line) {
     return (~line.indexOf('node_modules' + slash + 'mocha' + slash))
@@ -22,7 +22,7 @@ var filter = (function() {
         return list
       }
       //line = line.match(/\((.*)\)/)[1]
-      line = line.replace(/^.*\(/, '').replace(/\)$/, '')
+      //line = line.replace(/^.*\(/, '').replace(/\)$/, '')
       list.push(line.replace(cwd, ''))
       return list
     }, [])
@@ -56,11 +56,11 @@ function notify(msg, options) {
   if (options.title === 'Passed') {
     setTimeout(function() {
       notification.close()
-    }, 1500)
+    }, 1000)
   } else {
     setTimeout(function() {
       notification.close()
-    }, 10000)
+    }, 60000)
   }
 }
 
@@ -110,3 +110,4 @@ process.nextTick(function() {
     mocha.run()
   }
 })
+
