@@ -1,11 +1,13 @@
+/*global Mocha, mochaPhantomJS*/
 var filter = (function() {
   var slash = '/'
   var cwd = (typeof location === 'undefined' ? window.location : location).href.replace(/\/[^\/]*$/, '/')
 
+  function isExpectInternal(line) {
+    return ~line.indexOf('~' + slash + ' expect' + slash + 'lib' + slash)
+  }
   function isMochaInternal(line) {
     return (~line.indexOf('node_modules' + slash + 'mocha' + slash))
-      || (~line.indexOf('components' + slash + 'mochajs' + slash))
-      || (~line.indexOf('components' + slash + 'mocha' + slash))
       || (~line.indexOf(slash + 'mocha.js'))
   }
 
@@ -14,6 +16,9 @@ var filter = (function() {
 
     stack = stack.reduce(function(list, line) {
       if (isMochaInternal(line)) {
+        return list
+      }
+      if (isExpectInternal(line)) {
         return list
       }
       //line = line.match(/\((.*)\)/)[1]
@@ -26,7 +31,7 @@ var filter = (function() {
   }
 })()
 var notifications = {}
-window.addEventListener("beforeunload", function (event) {
+window.addEventListener('beforeunload', function () {
   for (var k in notifications) {
     var notification = notifications[k]
     notification.close()
@@ -99,7 +104,7 @@ Mocha.prototype._growl = function(runner, reporter) {
 
 process.nextTick(function() {
   delete require.cache[module.id]
-  if(typeof window !== "undefined" && window.mochaPhantomJS) {
+  if(typeof window !== 'undefined' && window.mochaPhantomJS) {
     mochaPhantomJS.run()
   } else {
     mocha.run()
